@@ -3,6 +3,7 @@ const path = require('path')
 const app = express()
 const User = require('./routes/user')
 const Blogs = require('./routes/blogs')
+const PORT = 3000
 const BlogModel =  require('./models/blogs')
 const router = express.Router()
 require('dotenv').config()
@@ -38,7 +39,7 @@ app.get('/' , async(req  , res)=>{
   })
 })
 
-app.listen(process.env.PORT , ()=>{
+app.listen(process.env.PORT || PORT , ()=>{
     console.log(`Server Started`);
     
 })
