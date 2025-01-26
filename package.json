@@ -1,9 +1,11 @@
 {
   "name": "blogging-application",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "node app",
+    "dev": "nodemon app"
+    
   },
   "author": "Aman Dabral",
   "license": "ISC",
