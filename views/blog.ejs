@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head')%>
+    <title>Blog</title>
+  </head>
+  <body>
+    <%- include('./partials/navbars')%>
+
+    <div class=" container mt-3">
+      <% if(locals.blog){%>
+      <h1 class="text-center"><%= locals.blog.title %></h1>
+      <!-- <img class="img-fluid" src=<%= locals.blog.coverImage %> alt="Blog Cover-Image">     -->
+      <p class="text-center"><%= locals.blog.description %></p>
+      <span style="font-size: 10px; font-weight: bold"
+        >Created By: <%= locals.blog.createdBy.fullName %>
+      </span>
+
+      <%} %>
+    </div>
+
+    <div class="container mt-3">
+      <form  action="/blog/comments/<%= locals.blog._id %>" method="post"  enctype="application/x-www-form-urlencoded">
+
+        <input type="text" placeholder="Enter your comment" class="form-control" name="comment">
+        <button type="submit">Post a Comment</button>
+      </form>
+    </div>
+
+    <div class="container mt-3">
+      <% if(locals.comment){%>
+      <% locals.comment.forEach(function(comment){ %> 
+      <div class="card" style="width: 18rem">        
+        <div class="card-body">          
+          <p class="card-text"><%= comment.comment %></p>
+          <span style="font-size: 10px; font-weight: bold"
+            >Created By: <%= comment.createdBy.fullName %>
+          </span>
+        </div>
+      </div>
+      <% }); %>
+      <%} %>
+    </div>
+
+    <%include('./partials/scripts')%>
+  </body>
+</html>

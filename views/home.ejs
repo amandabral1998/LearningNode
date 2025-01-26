@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include('./partials/head')%>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <%-include('./partials/navbars')%>
+
+    <div class="container mt-3">
+      <% if (locals.allBlogs && locals.allBlogs.length > 0) { %> <%
+      locals.allBlogs.forEach(function(blog) { %>
+      <!-- Access each blog using blog -->
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src=<%= blog.coverImage %>
+          alt="Blog Cover-Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.title %></h5>
+
+          <a href="/blog/<%= blog._id %>" class="btn btn-primary">View Blog</a>
+        </div>
+      </div>
+
+      <% }); %> <% } %> <%-include('./partials/scripts')%>
+    </div>
+  </body>
+</html>

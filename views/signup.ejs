@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include('./partials/head')%>
+    <title>Signup</title>
+  </head>
+  <body>
+    <%-include('./partials/scripts')%> <%-include('./partials/navbars')%>
+    <div class="container">
+        <form action="/user/signup" method="POST" enctype="application/x-www-form-urlencoded">
+      <div class="row">
+        <div class="col">
+          <input
+          name="fullName"
+            type="text"
+            class="form-control"
+            placeholder="FullName"
+            aria-label="FullName"
+          />
+        </div>
+        <div class="col">
+          <input
+          name="email"
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email"
+          />
+        </div>
+
+        <div class="col">
+          <input
+          name="password"
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+          />
+           
+        </div>
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+
+</form>
+  </body>
+</html>

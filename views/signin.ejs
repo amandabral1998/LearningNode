@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%-include('./partials/head')%>
+    <title>Login</title>
+</head>
+<body>
+    <%-include('./partials/scripts')%> <%-include('./partials/navbars')%>   
+
+    <div class="container">
+      <%  if(locals.error){%>
+        <div class="alert alert-danger" role="alert">
+         Invlalid Credentials
+        </div>
+     <% } %> 
+
+     
+        <form action="/user/signin" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="row mb-3 mt-5">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" name="email">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label" >Password</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+    </div>
+
+</body>
+</html>
